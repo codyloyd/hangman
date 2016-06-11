@@ -1,0 +1,32 @@
+@font-face {
+    font-family: refuge;
+    src: url(Refuge.otf);
+}
+
+body {
+	background: #2E231C;
+	text-align: center;
+	display: block;
+	color: #EB0D32;
+	font-family: refuge;
+	font-size: 300%;
+}
+
+input {
+	margin-top: 10px;
+	text-align: center;
+	font-family: refuge;
+	font-size: 32px;
+}
+
+.bottom {
+	bottom: 5%;
+	position: fixed;
+	width: 100%;
+	text-align: center;
+}
+
+a {
+	color: #EB0D32;
+	text-decoration: none;
+}

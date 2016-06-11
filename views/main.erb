@@ -1,6 +1,24 @@
-<%= @word %>
-<%= @word_array %>
-<%= @answer_array %>
+<h1>GENERIC WORD GAME</h1>
+<h3>guess a letter</h3>
+<p>
+	<% @answer_array.each do |char| %>
+		<% if char == "" %>
+			_
+		<% else %>
+			<%= char %>
+		<% end %>
+	<% end %>
+</p>
 <form method="POST" action="/">
-	<input type="text" name="GUESS">	
+	<input type="text" name="GUESS" autofocus pattern="[A-Za-z]{1}" title="enter a single letter" size="1">	
 </form>
+<p>
+	<% @used_letters.each do |char| %>
+		<%= char %>
+	<% end %>
+
+</p>
+
+<p>you have</p>
+<h3><%= @turns_remaining %></h3>
+<p>turns remaining</p>
