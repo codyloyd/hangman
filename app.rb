@@ -5,7 +5,7 @@ enable	:sessions
 Word_list = File.open("./public/5desk.txt", "r").readlines
 
 get '/' do
-	if session[:game_over] == true
+	if session[:game_over] == true || session[:word] == nil
 		redirect to("/newgame")
 	end
 	variables
