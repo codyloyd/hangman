@@ -11,10 +11,15 @@ get '/' do
 	erb :main
 end
 
+post '/' do
+	check_response(GUESS)
+end
+
 get '/newgame' do
 	session[:word] = select_word_from_list(Word_list)
 	session[:word_array] = word_to_array(session[:word])
 	session[:answer_array] = create_answer_array(session[:word])
+	session[:used_letters] = []
 	redirect to('/')
 end
 
@@ -44,12 +49,8 @@ helpers do
 
 	def check_response(letter)
 		correct_response = false
-		if letter == "save"
-			save_game
-			@game_over = true
-		elsif @used_letters.include?(letter)
-			puts "you already tried that one, try again"
-			return get_response
+		if @used_letters.include?(letter)
+			#they've already guessed this letter
 		end
 		@word.each_with_index do |l,i|
 			if letter == l 
