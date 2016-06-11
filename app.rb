@@ -84,18 +84,18 @@ helpers do
 
 	def check_response(letter)
 		correct_response = false
-		if session[:used_letters].include?(letter)
+		if session[:used_letters].include?(letter.downcase) 
 			#they've already guessed this letter
 			return
 		end
 		session[:word_array].each_with_index do |l,i|
-			if letter == l 
-				session[:answer_array][i] = letter
+			if letter.downcase == l 
+				session[:answer_array][i] = letter.downcase
 				correct_response = true
 			end 
 		end
 		unless correct_response 
-			session[:used_letters].push(letter)
+			session[:used_letters].push(letter.downcase)
 			session[:turns_remaining] -= 1
 			# puts "uh oh! that letter is not in the puzzle!"
 		end
